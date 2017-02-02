@@ -1,0 +1,98 @@
+\documentclass[
+	11pt, 
+	a4paper, 
+	twoside, 
+	parskip=half*, %Zeilenabstand bei Absätzen
+	openright,  %openany -> auf welcher seite sollen neue Kapitel beginnen
+	listof=totoc, %listings ins inhaltsverzeichnis mit aufnehmen
+	bibliography=totoc, %literaturverzeichnis ins inhaltsverzeichnis aufnehmen
+	index=totoc, %indexverzeichnis ins inhaltsverzeichnis aufnehmen
+      toc=chapterentrywithdots, % punkte im inhaltsverzeichnis auch für kapitel setzen
+      %chapterprefix=true %verändert die anzeige des kapitels, zeigt zur Kapitelnummer noch "Kapitel" an
+]
+{scrbook}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{url}
+\usepackage[autostyle=true,german=quotes]{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{pdfpages}
+\usepackage{textcomp}
+
+% Metadaten für PDF
+\usepackage[pdftex,
+            pdfauthor={Jon Doe},
+            pdftitle={Thesis Template},
+            pdfsubject={Bachelorthesis},
+            pdfkeywords={Thesis},
+            pdfproducer={LaTeX},
+            pdfcreator={pdfLaTeX},
+            pdfduplex={DuplexFlipLongEdge}, %Alt.: Simplex oder DuplexFlipShortEdge 
+            pdflang={de}, % en
+]{hyperref}
+
+% Tabellen
+\usepackage{caption} 
+\captionsetup[table]{belowskip=12pt,aboveskip=4pt}
+\usepackage{diagbox}
+
+% Einstellungen laden
+\input{settings/bibliography.tex}
+\input{settings/graphics.tex}
+\input{settings/layout.tex}
+\input{settings/colors.tex}
+\input{settings/listings.tex}
+\input{settings/links.tex}
+\input{settings/commands}
+
+% Fußnoten
+\usepackage{footnote}
+\makesavenoteenv{figure}
+
+\begin{document}
+
+% PDF einbinden
+%\includepdf[pages=-,templatesize={145mm}{210mm},noautoscale=true,offset=-65 50]{myfile.pdf}
+\includepdf[pages={1},offset=25 -40]{chapters/deckblatt.pdf}
+\input{chapters/abstract}
+\input{chapters/eid}
+
+\cleardoubleoddpage	
+\newpage\thispagestyle{empty}
+{
+  \pagestyle{empty}
+  \addtocontents{toc}{\protect\thispagestyle{empty}} 
+  \tableofcontents
+  \clearpage
+}
+
+\pagenumbering{Roman} 
+
+% Verzeichnisse
+\listoffigures
+\setcounter{page}{1}
+\listoftables
+\lstlistoflistings 
+
+% Kapitel einbinden
+\mainmatter
+\input{chapters/chapter1}
+\input{chapters/chapter2}
+\input{chapters/chapter3}
+\input{chapters/chapter4}
+\input{chapters/chapter5}
+
+% Anhang
+\input{chapters/appendix}
+
+% Literaturverzeichnis
+\cleardoubleoddpage
+\printbibheading[title=Quellen]
+\printbibliography[heading=subbibliography, type=online, title={Online}]
+\printbibliography[heading=subbibliography, type=book, title={Literatur}]
+%\printbibliography[heading=subbibliography,title={Der ganze Rest},nottype=online,notkeyword=Norm,notkeyword=sekundaer]
+
+\end{document}
+
+

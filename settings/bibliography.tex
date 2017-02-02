@@ -1,0 +1,31 @@
+%bibliography - just use the following three lines for footcites only 
+% and full footcites on the same pages = OSCOLA Zitierweise (https://www.scribbr.de/quellenangabe/uebersicht-zitierstile/#oscola)
+%\usepackage[style=verbose]{biblatex}
+%\usepackage{csquotes}
+%\addbibresource{sources/literature.bib}
+
+\usepackage[
+    backend=biber, 
+    style=authoryear-icomp,
+    citestyle=authoryear-icomp,%authortitle,
+    date=short,
+    %backref=true, % Seiten anzeigen auf denen die Referenz verwendet wird
+    maxbibnames=3,
+    pagetracker=true,
+    isbn=false,    
+    %block=ragged, %break urls
+%    firstinits=true, % vornamen abkürzen
+    backrefstyle=three+ %Seiten zusammenfassen    
+]{biblatex}
+
+\setlength{\bibitemsep}{.5em}     % Abstand zwischen den Literaturangaben
+\setlength{\bibhang}{2em}        % Einzug nach jeweils erster Zeile
+
+% URL im Literaturverzeichnis ist in spitzen Klammern
+\DeclareFieldFormat{url}{<\url{#1}>}
+
+%break too long urls
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+\bibliography{sources/literature.bib}

@@ -1,0 +1,151 @@
+\usepackage{listings}
+\usepackage[many]{tcolorbox}
+
+% name of listings in the toc
+\renewcommand\lstlistlistingname{Listingverzeichnis}
+
+% general settings for listing
+\lstset{
+    xleftmargin=1.1cm,
+    belowskip=3em,
+    basicstyle=\fontsize{10}{15}\ttfamily,
+    basewidth  = {.5em,0.4em},
+    captionpos=t,
+    lineskip={2pt},
+    backgroundcolor=\color{white},
+    framextopmargin=6pt,
+    framexrightmargin=0pt,
+    framexleftmargin=0.9em,    
+    framexbottommargin=6pt, 
+    frame=l,
+%    frame=single,        
+%    frame=tb, framerule=0pt,    
+    framesep=6.5mm,
+    fillcolor=\color{white},
+    rulecolor=\color{middlegray},
+    numbers=left,
+    numberstyle=\normalfont\color{middlegray},
+%    numberstyle=\footnotesize,    
+    numbersep=10pt,
+    abovecaptionskip=10pt, %space above the caption
+    belowcaptionskip=10pt, %space below the caption
+    extendedchars=true,
+    showstringspaces=false,
+    showspaces=false,
+    stepnumber=1, % the step between two line-numbers. If it is 1 each line will be numbered
+    tabsize=2,
+    breaklines=true,
+    showtabs=false,
+    upquote=true,
+}
+
+% define language
+\lstdefinelanguage{JavaScript}{
+    keywords={typeof, new, true, false, catch, then, function, return, null, catch, switch, var, if, in, while, do, else, case, break, default},
+    keywordstyle=\color{editorGreen}\bfseries,
+    ndkeywords={class, export, boolean, throw, implements, import, this, const},
+    ndkeywordstyle=\color{vscodeblue}\bfseries,
+    identifierstyle=\color{black},
+    sensitive=false,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    commentstyle=\color{editorGreen}\ttfamily,
+    stringstyle=\color{darkred}\ttfamily,
+    morestring=[b]',
+    morestring=[b]"
+}
+
+\lstdefinelanguage{HTML5}{
+  language=html,
+  sensitive=true,	
+  alsoletter={<>=-},	
+  morecomment=[s]{<!-}{-->},
+  tag=[s],
+  otherkeywords={
+  % General
+  >,
+  % Standard tags
+	<!DOCTYPE,
+  </html, <html, <head, <title, </title, <style, </style, <link, </head, <meta, />,
+	% body
+	</body, <body,
+	% Divs
+	</div, <div, </div>, 
+	% Paragraphs
+	</p, <p, </p>,
+	% scripts
+	</script, <script,
+  % More tags...
+  <canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>, <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header, </header, <article, </article
+  },
+  ndkeywords={
+  % General
+  =,
+  % HTML attributes
+  charset=, src=, id=, width=, height=, style=, type=, rel=, href=,
+  % SVG attributes
+  fill=, attributeName=, begin=, dur=, from=, to=, poster=, controls=, x=, y=, repeatCount=, xlink:href=,
+  % properties
+  margin:, padding:, background-image:, border:, top:, left:, position:, width:, height:, margin-top:, margin-bottom:, font-size:, line-height:,
+	% CSS3 properties
+  transform:, -moz-transform:, -webkit-transform:,
+  animation:, -webkit-animation:,
+  transition:,  transition-duration:, transition-property:, transition-timing-function:,
+  }
+}
+\lstdefinestyle{html} {%
+  % Code design
+  keywordstyle=\color{lightblack}\bfseries,
+  ndkeywordstyle=\color{lightblack}\bfseries,
+  identifierstyle=\color{lightblack},
+  commentstyle=\color{green}\ttfamily,
+  stringstyle=\color{darkred}\ttfamily,
+  % Code
+  language=HTML5,
+%  alsolanguage=JavaScript,
+  alsodigit={.:;},	
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  % German umlauts
+  literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1
+}
+
+\lstdefinelanguage{CSS} 
+{morekeywords={color,background,margin,padding,margin,padding,font,weight,display,position,top,left,right,bottom,list,style,border,size,white,space,min,width, 	transition}, 
+	sensitive=false, 
+	morecomment=[l]{//}, 
+	morecomment=[s]{/*}{*/}, 
+	morestring=[b]", 
+}
+
+\lstdefinestyle{css} {%
+  language=CSS,
+  keywordstyle=\color{lightblack},
+}
+
+\lstdefinestyle{js} {
+   language=JavaScript   
+}
+
+%Usage
+%\begin{minipage}{\linewidth}
+%\begin{lstlisting}[style=js, caption={Flux Action Creator}, label=lst:actionCreator] 
+%create: function(text) {
+  %AppDispatcher.dispatch({
+    %type: Constants.TODO_CREATE,
+    %payload: 'sample'
+  %});
+%},
+%\end{lstlisting}
+%\end{minipage}
