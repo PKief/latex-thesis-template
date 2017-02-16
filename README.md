@@ -22,21 +22,17 @@
 
 ## Getting started
 ### TeX Live
-Download the latest version of TeX Live from <a href="https://www.tug.org/texlive/" target="_blank">here</a>.
+Download the latest version of TeX Live from [here](https://www.tug.org/texlive/).
 The installation can take a while, so be patient ;)
 
 ### TeX Works
-The editor should be included in the TeX Live package. It is the [TeX Works editor](https://www.tug.org/texworks/). So you must not do something here.
-
-Otherwise you can download it from [here](https://github.com/TeXworks/texworks/releases).
+You can use the editor of your choice. The prefered one for this template is the [TeX Works editor](https://www.tug.org/texworks/).
+The editor should be included in the TeX Live package. You can find the .exe in the installation folder of your TeX Live distribution (`...\texlive\2015\bin\win32\texworks.exe`). Otherwise download the latest version from the [website](https://www.tug.org/texworks/).
 
 ### Compile the tex-file
 Finally you want to see the template working so you need to open the file `thesis.tex` with the TeX Works editor.
-
 On the top left you can press the green button to compile the template. Be sure that you select `pdfLaTeX` in the select box next to the green compile button.
-
 Now the compiler should run without any errors and the preview of the PDF opens up.
-
 The content of the table of contents or the list of figures are not rendered yet. You need to compile the template twice.
 
 ### Biber

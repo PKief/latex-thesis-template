@@ -52,10 +52,11 @@
 
 \begin{document}
 
-% PDF einbinden
+% PDF als Deckblatt einbinden
 %\includepdf[pages=-,templatesize={145mm}{210mm},noautoscale=true,offset=-65 50]{myfile.pdf}
-\includepdf[pages={1},offset=25 -40]{chapters/deckblatt.pdf}
+%\includepdf[pages={1},offset=25 -40]{chapters/deckblatt.pdf}
 
+\input{chapters/titlepage}
 \input{chapters/abstract}
 \input{chapters/eid}
 
@@ -68,6 +69,7 @@
   \clearpage
 }
 
+\frontmatter
 \pagenumbering{Roman} 
 
 % Verzeichnisse
@@ -76,19 +78,25 @@
 \listoftables
 \lstlistoflistings 
 
-% Kapitel einbinden
+
 \mainmatter
+
+% Kapitel einbinden
 \input{chapters/chapter1}
 \input{chapters/chapter2}
 \input{chapters/chapter3}
 \input{chapters/chapter4}
 \input{chapters/chapter5}
 
+\backmatter
+\pagenumbering{Roman} 
+\setcounter{page}{6} % römisch weiterzählen (von frontmatter ab)
+
 % Anhang
 \input{chapters/appendix}
 
 % Literaturverzeichnis
-\cleardoubleoddpage
+\cleardoublepage
 \printbibheading[title=Quellen]
 \printbibliography[heading=subbibliography, type=online, title={Online}]
 \printbibliography[heading=subbibliography, type=book, title={Literatur}]

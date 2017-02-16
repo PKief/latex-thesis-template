@@ -49,3 +49,13 @@
     afterskip=1sp,% smallest possible positive value
 ]{paragraph,subparagraph}
 
+% Roman page numbers in backmatter
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\backmatter}
+{\@mainmatterfalse}
+{\@mainmatterfalse\pagenumbering{roman}}
+{}
+{}
+\makeatother
+
