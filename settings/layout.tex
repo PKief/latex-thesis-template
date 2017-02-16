@@ -2,31 +2,11 @@
 \usepackage{geometry}
 \geometry{left=25mm, right=25mm, top=25mm, bottom=30mm}
 
-%headers&footers
-%\usepackage{fancyhdr}
-%\pagestyle{fancy}
-%%RLC = right,left,center
-%%OE = odd, even
-%\fancyhead{}
-%\fancyhead[RO,LE]{Thesis Title}
-%\fancyfoot{}
-%\fancyfoot[LE,RO]{\thepage}
-%\fancyfoot[LO,CE]{Chapter \thechapter}
-%\fancyfoot[CO,RE]{Author Name}
-
-%thickness of the line
-%\renewcommand{\headrulewidth}{.4pt}
-%\renewcommand{\footrulewidth}{0.4pt}
-%if we need a page without header and footer:
-%\pagestyle{empty}
-
 \usepackage[automark]{scrlayer-scrpage}
 \pagestyle{scrheadings}
 \automark*[section]{}
-%\clearpairofpagestyles
 \ohead{\headmark}
 \ihead{}
-%\ihead{\pagemark}
 \ofoot{\thepage}
 
 %footnote gap
@@ -36,33 +16,18 @@
 %prevend footnote page break
 \interfootnotelinepenalty=10000
 
-
-%\setkomafont{pageheadfoot}{\small}
-%\setkomafont{pagehead}{\bfseries}
-
 % zeilenabstände
 \usepackage[onehalfspacing]{setspace}
 
 \raggedbottom %text muss nicht bis zum ende einer seite gehen
 
-%\setkomafont{chapter}{\fontsize{20bp}{18.8bp}\selectfont\bfseries\kern-0.2em} 
-%\setkomafont{section}{\fontsize{15bp}{18.8bp}\selectfont\bfseries} 
-%\setkomafont{subsection}{\fontsize{12bp}{18.8bp}\selectfont\bfseries} 
-
-%\usepackage{titlesec}
-%\titleformat{\chapter}{\Huge\sffamily}{\thechapter}{1em}{\relax}
-%\titleformat{\section}{\Large\sffamily}{\thesection}{1em}{\relax}
-%\titleformat{\subsection}{\large\sffamily}{\thesubsection}{1em}{\relax}
-%\titleformat{\subsubsection}{\large\sffamily}{\thesubsubsection}{1em}{\relax}
-
-%platz vor und nach Kapitelüberschriften
+% platz vor und nach Kapitelüberschriften
 \RedeclareSectionCommand[beforeskip=0pt,afterskip=.6cm,font=\fontsize{18}{20}\selectfont]{chapter}
 %\RedeclareSectionCommand[beforeskip=10pt,afterskip=.3cm,font=\fontsize{18}{25}\selectfont]{section}
 %\RedeclareSectionCommand[beforeskip=10pt,afterskip=.3cm,font=\fontsize{16}{25}\selectfont]{subsection}
 %\RedeclareSectionCommand[beforeskip=0pt,afterskip=.3cm,font=\fontsize{14}{25}\selectfont]{subsubsection}
 
 \usepackage{mwe}
-\usepackage{xcolor}
 
 % chapter style
 \renewcommand*{\chapterformat}{%
@@ -70,13 +35,6 @@
   \textcolor{gray!50}{\rule[-\dp\strutbox]{2pt}{\baselineskip}}\enskip
 }
 \setkomafont{disposition}{\normalcolor\bfseries}
-
-%\RedeclareSectionCommand[% 
-%  beforeskip=-4.6\baselineskip plus -.4\baselineskip minus -.6\baselineskip, 
-%  afterskip=3.2\baselineskip plus .8\baselineskip minus .2\baselineskip, 
-%  font=\fontsize{19}{25}\selectfont 
-%]{chapter} 
-%\renewcommand*{\chapterformat}{\chapapp~\thechapter:~} 
 
 %paragraph anpassen
 %\addtokomafont{paragraph}{\itshape}

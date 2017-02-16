@@ -15,17 +15,20 @@
     - [Literature](#literature)
         - [JabRef](#jabref)
         - [Cites and footnotes](#cites-and-footnotes)
-        - [Listings](#listings)
+    - [Listings](#listings)
+    - [Colors](#colors)
 
 <!-- /TOC -->
 
 ## Getting started
 ### TeX Live
-Download the latest version of TeX Live from [here](https://www.tug.org/texlive/).
+Download the latest version of TeX Live from <a href="https://www.tug.org/texlive/" target="_blank">here</a>.
 The installation can take a while, so be patient ;)
 
 ### TeX Works
 The editor should be included in the TeX Live package. It is the [TeX Works editor](https://www.tug.org/texworks/). So you must not do something here.
+
+Otherwise you can download it from [here](https://github.com/TeXworks/texworks/releases).
 
 ### Compile the tex-file
 Finally you want to see the template working so you need to open the file `thesis.tex` with the TeX Works editor.
@@ -50,10 +53,26 @@ Did not get the configuration of `biber`? Look [here](http://www.edition-open-so
 ---
 
 ## Project structure
-We have one main file called `thesis.tex` which can be found in the root folder. This file includes all the other files needed for the whole template. The content is splitted up into files which can be found in the folder `chapters`. 
+There's one main file called `thesis.tex` which can be found in the root folder. This file includes all the other files needed for the whole template. The content is splitted up into files which can be found in the folder `chapters`. 
+
+The chapters are included like this:
+
+```tex
+\input{chapters/chapter1}
+\input{chapters/chapter2}
+\input{chapters/chapter3}
+\input{chapters/chapter4}
+```
 
 ### Settings
 All settings are located under the `settings`-folder. 
+
+The settings will be included with these commands in the `thesis.tex`-file:
+
+```tex
+\input{settings/bibliography.tex}
+\input{settings/graphics.tex}
+```
 
 ### Images
 All images are located under the `images`-folder. Because of the settings (`settings/graphics.tex`) we do not need the whole file path when we load an image into the content. You can just write the name of the image. 
@@ -64,7 +83,7 @@ Example:
 \includegraphics{sample}
 ```
 
-The 'real' image is located under `images/` and has the full file name `sample.jpeg`.
+The 'real' image is located under `images/` and has the full file name `sample.jpeg`. You can easily change the default images path in the `settings/graphics.tex`-file.
 
 **Add image with caption**
 The following code shows how to include an image in a `figure` environment. The image has a width of 100% of the page. If you want another width just change it, e.g. 300px. 
@@ -79,6 +98,14 @@ With the label-text you can refer the image in the text with: `\ref{fig:imageYou
 \end{figure}
 ```
 
+If you have a smaller image and you want to center it, you can set it up with the `centering`-command:
+
+```
+\begin{figure}[h]
+    \centering
+    ... 
+```
+
 ## KomaScript
 The template uses the `KomaScript`-bundle. [Need more information?](https://www.ctan.org/pkg/koma-script?lang=de)
 
@@ -88,7 +115,7 @@ Big point for a thesis: how to handle the required literature and how to include
 As you can see (`settings/bibliography.tex`) the template uses the package `biblatex`. In the settings file you need to include your resource files.
 
 ```tex
-\addbibresource{sources/literature.bib}
+\bibliography{sources/literature.bib}
 ```
 
 As you can see in the example above we have already a literature file in the `sources`-folder with the following entry:
@@ -101,6 +128,15 @@ As you can see in the example above we have already a literature file in the `so
   url     = {https://de.wikipedia.org/wiki/John_Doe},
   urldate = {2016-10-02},
 }
+```
+
+The sources will be devided either in "Online"-sources or "Literature"-sources.
+
+This can be configured in the `thesis.tex`-file:
+
+```tex
+\printbibliography[heading=subbibliography, type=online, title={Online}]
+\printbibliography[heading=subbibliography, type=book, title={Literatur}]
 ```
 
 ### JabRef
@@ -132,6 +168,14 @@ If you prefer the harvard citation style (Doe, 2016) you should use the followin
 \parencite[vgl.][7]{jondoe} % (vgl. Doe 2016, S. 7)
 ``` 
 
+You may notice that if you want to use the same source multiple times in a paragraph you will see something like this:
+
+```
+(vgl. ebd., S. 26)
+```
+
+[Never heard of "ebd"?](https://de.wikipedia.org/wiki/Ebenda)
+
 > Remember to compile your thesis with `biber` to render the cites correctly.
 
 **Normal footnote**
@@ -141,7 +185,7 @@ If you want to add a normal footnote to add some further information:
 \footnote{This is some additional information}
 ```
 
-### Listings
+## Listings
 The template provides some listings for `CSS`, `HTML` and `JavaScript`. You will find the definition of the listings under `settings/listings.tex`.
 
 In the settings you have to define the language with its keywords and other needed options...
@@ -183,3 +227,17 @@ Another very good package for listings is [minted](https://www.ctan.org/pkg/mint
 **Inline listing**
 
 For inline listings just use the custom command `\code{console.log()}`. This command is defined in the `settings/commands.tex`-file.
+
+## Colors
+
+You can define the colors in the `settings/colors.tex`-file.
+
+```tex
+\definecolor{vscodegreen}{HTML}{66BB6A}
+```
+
+Use colors in the text:
+
+```tex
+\textcolor{vscodegreen}{Lorem ipsum dolor}
+```
