@@ -5,9 +5,9 @@
 - [LaTeX Template for a thesis](#latex-template-for-a-thesis)
     - [Getting started](#getting-started)
         - [TeX Live](#tex-live)
-        - [TeX Works](#tex-works)
-        - [Compile the tex-file](#compile-the-tex-file)
-        - [Biber](#biber)
+        - [Editors](#editors)
+        - [Compile the tex-file (in TeXworks)](#compile-the-tex-file-in-texworks)
+        - [Biber (in TeXworks)](#biber-in-texworks)
     - [Project structure](#project-structure)
         - [Settings](#settings)
         - [Images](#images)
@@ -29,30 +29,28 @@ The installation can take a while, so be patient ;)
 ### Editors
 You can use the editor of your choice. It's highly recommended for this template to use the [LaTeX-Workshop-Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for [VS Code](https://code.visualstudio.com/). There you can compile the tex-files very easily and you get a good support with autocompletion for references or bibliography.
 
-Another editor can be found in [TeX Works editor](https://www.tug.org/texworks/).
+Another editor can be found in [TeXworks editor](https://www.tug.org/texworks/).
 The editor should already be included in the TeX Live package. You can find the .exe in the installation folder of your TeX Live distribution (`...\texlive\2017\bin\win32\texworks.exe`). Otherwise download the latest version from the [website](https://www.tug.org/texworks/). 
 
-*The following descriptions are for TeX Works only. If you use VS Code LaTeX Workshop you can skip these sections because it does the things automatically.*
+*The following descriptions are for TeXworks only. If you use VS Code LaTeX-Workshop you can skip these sections because it does the things automatically.*
 
-### Compile the tex-file (in TeX Works)
-Finally you want to see the template working so you need to open the file `thesis.tex` with the TeX Works editor.
+### Compile the tex-file (in TeXworks)
+Finally you want to see the template working so you need to open the file `thesis.tex` with the TeXworks editor.
 On the top left you can press the green button to compile the template. Be sure that you select `pdfLaTeX` in the select box next to the green compile button.
 Now the compiler should run without any errors and the preview of the PDF opens up.
 The content of the table of contents or the list of figures are not rendered yet. You need to compile the template twice.
 
-### Biber (in TeX Works)
+### Biber (in TeXworks)
 As you may have noticed the footnote for the cites are not rendered yet very well. To compile the cites and the bibliography settings you need `biber`. You have to select the `biber`-compiler instead of the `pdfLaTeX` in the selection next to the green compiler button. 
 
 **You cannot find `biber` there?**
 
-You just have to set up the TeX Works editor that it shows the `biber`-compiler.
-Go into the settings of TeX Works (under `Edit > Settings...`) and select the tab `Typesetting`. Under the point `Processing tools` click on the `+` and add `biber`. Name it 'Biber' and select the program under your installation folder of `texlive` (e.g. `C:/texlive/2015/bin/win32/biber.exe`). You have to add the argument `$basename` and uncheck the option to `view pdf after running`.
+You just have to set up the TeXworks editor that it shows the `biber`-compiler.
+Go into the settings of TeXworks (under `Edit > Settings...`) and select the tab `Typesetting`. Under the point `Processing tools` click on the `+` and add `biber`. Name it 'Biber' and select the program under your installation folder of `texlive` (e.g. `C:/texlive/2015/bin/win32/biber.exe`). You have to add the argument `$basename` and uncheck the option to `view pdf after running`.
 
 Now select `biber` in the dropdown list next to the compile button to run `biber`. After that you need to run `pdfLaTeX` again and then you should have the literature correctly in your template.
 
 Did not get the configuration of `biber`? Look [here](http://www.edition-open-sources.org/support/texworks.html) for some screenshots. 
-
----
 
 ## Project structure
 There's one main file called `thesis.tex` which can be found in the root folder. This file includes all the other files needed for the whole template. The content is splitted up into files which can be found in the folder `chapters`. 
