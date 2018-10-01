@@ -1,4 +1,9 @@
 %\newcommand{\code}[1]{\colorbox{lightgray}{\texttt{#1}}}
 %\lstinline{snippet}
 %http://tex.stackexchange.com/questions/65291/code-snippet-in-text
+
+% This "\code{my code}" can be used to highlight small code snippets in the text like names of variables or methods.
 \newcommand{\code}[1]{\textcolor{black}{\texttt{#1}}}
+
+% The "\todo{this still has to be done}" is a command that highlights todos in the text.
+\newcommand{\todo}[1]{\textcolor{vscodered}{TODO: \texttt{#1}}}

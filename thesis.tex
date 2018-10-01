@@ -1,16 +1,16 @@
 \documentclass[
 	11pt, 
 	a4paper, 
-	twoside, 
-	parskip=half*, %Zeilenabstand bei Absätzen
-	openright,  %openany -> auf welcher seite sollen neue Kapitel beginnen
-	listof=totoc, %listings ins inhaltsverzeichnis mit aufnehmen
-	bibliography=totoc, %literaturverzeichnis ins inhaltsverzeichnis aufnehmen
-	index=totoc, %indexverzeichnis ins inhaltsverzeichnis aufnehmen
-      toc=chapterentrywithdots, % punkte im inhaltsverzeichnis auch für kapitel setzen
-      %chapterprefix=true %verändert die anzeige des kapitels, zeigt zur Kapitelnummer noch "Kapitel" an
-]
-{scrbook}
+	twoside,
+	parskip=half*, % Line spacing for paragraphs
+	openright,  % openany -> on which page should new chapters start
+	listof=totoc, % Include listings in the table of contents
+	bibliography=totoc, % adding a bibliography to the table of contents
+	index=totoc, % add index directory to the table of contents
+  toc=chapterentrywithdots, % Set dots in the table of contents also for chapters
+  numbers=noenddot, % removes the last dot after X.X.X.
+  %chapterprefix=true % changes the display of the chapter, adds "Chapter" to the chapter number
+]{scrbook}
 
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
@@ -19,48 +19,60 @@
 \usepackage[T1]{fontenc}
 \usepackage{pdfpages}
 \usepackage{textcomp}
+\usepackage{amsmath} % math environment
 
-% Metadaten für PDF
-\usepackage[pdftex,
-            pdfauthor={Jon Doe},
-            pdftitle={Thesis Template},
-            pdfsubject={Bachelorthesis},
-            pdfkeywords={Thesis},
-            pdfproducer={LaTeX},
-            pdfcreator={pdfLaTeX},
-            pdfduplex={DuplexFlipLongEdge}, %Alt.: Simplex oder DuplexFlipShortEdge 
-            pdflang={de}, % en
+% ---------------------------
+% |    Meta-Data for PDF    |
+% ---------------------------
+\usepackage[
+  pdftex,
+  pdfauthor={Jon Doe},
+  pdftitle={Thesis Template},
+  pdfsubject={Bachelorthesis},
+  pdfkeywords={Thesis;Template;LaTeX},
+  pdfproducer={LaTeX},
+  pdfcreator={pdfLaTeX},
+  pdfduplex={DuplexFlipLongEdge}, %Alt.: Simplex or DuplexFlipShortEdge 
+  pdflang={de}, % en
+  bookmarksopen,
+  bookmarksnumbered,
 ]{hyperref}
 
-% Tabellen
-\usepackage{caption} 
-\captionsetup[table]{belowskip=12pt,aboveskip=4pt}
-\usepackage{diagbox}
-
-% Einstellungen laden
+% ------------------
+% |    Settings    |
+% ------------------
 \input{settings/bibliography.tex}
 \input{settings/graphics.tex}
+\input{settings/tables.tex}
 \input{settings/colors.tex}
 \input{settings/layout.tex}
 \input{settings/listings.tex}
 \input{settings/links.tex}
 \input{settings/commands}
-
-% Fußnoten
-\usepackage{footnote}
-\makesavenoteenv{figure}
+\input{settings/bookmarks}
 
 \begin{document}
 
-% PDF als Deckblatt einbinden
-%\includepdf[pages=-,templatesize={145mm}{210mm},noautoscale=true,offset=-65 50]{myfile.pdf}
-%\includepdf[pages={1},offset=25 -40]{chapters/deckblatt.pdf}
+% -------------------
+% |    Titlepage    |
+% -------------------
+% \includepdf[pages=-,templatesize={145mm}{210mm},noautoscale=true,offset=-65 50]{myfile.pdf}
+\includepdf[pages={1},offset=25 -40]{chapters/deckblatt.pdf}
+% \input{chapters/titlepage} % Use latex title page
 
-\input{chapters/titlepage}
+% ------------------
+% |    Abstract    |
+% ------------------
+\cleardoubleoddpage	
+\pdfbookmark[section]{Kurzfassung}{abstract} % Abstract as bookmark
 \input{chapters/abstract}
 \input{chapters/eid}
 
+% ---------------------------
+% |    Table of contents    |
+% ---------------------------
 \cleardoubleoddpage	
+\pdfbookmark[section]{\contentsname}{toc} % toc is part of the bookmarks but not part the toc itself
 \newpage\thispagestyle{empty}
 {
   \pagestyle{empty}
@@ -69,39 +81,42 @@
   \clearpage
 }
 
+% -----------------
+% |    Indexes    |
+% -----------------
 \frontmatter
-\pagenumbering{Roman} 
-
-% Verzeichnisse
+\pagenumbering{Roman}
 \listoffigures
-\setcounter{page}{1}
 \listoftables
 \lstlistoflistings 
 
-
+% ------------------
+% |    Chapters    |
+% ------------------
 \mainmatter
-
-% Kapitel einbinden
+\setcounter{page}{1}
 \input{chapters/chapter1}
 \input{chapters/chapter2}
 \input{chapters/chapter3}
 \input{chapters/chapter4}
 \input{chapters/chapter5}
 
-\backmatter
-\pagenumbering{Roman} 
-\setcounter{page}{6} % römisch weiterzählen (von frontmatter ab)
-
-% Anhang
+% ------------------
+% |    Appendix    |
+% ------------------
+\appendix
+\cleardoubleoddpage
+\pagenumbering{Roman}
+\setcounter{page}{7}
 \input{chapters/appendix}
 
-% Literaturverzeichnis
-\cleardoublepage
-\printbibheading[title=Quellen]
-\printbibliography[heading=subbibliography, type=online, title={Online}]
-\printbibliography[heading=subbibliography, type=book, title={Literatur}]
-%\printbibliography[heading=subbibliography,title={Der ganze Rest},nottype=online,notkeyword=Norm,notkeyword=sekundaer]
+% ----------------------
+% |    Bibliography    |
+% ----------------------
+\printbibliography
+% \printbibheading[title=Literatur]
+% \printbibliography[heading=subbibliography, type=online, title={Online}]
+% \printbibliography[heading=subbibliography, type=book, title={Literatur}]
+% \printbibliography[heading=subbibliography,title={Der ganze Rest},nottype=online,notkeyword=Norm,notkeyword=sekundaer]
 
 \end{document}
-
-

@@ -1,25 +1,30 @@
 \usepackage[
     backend=biber, 
-    style=authoryear-icomp,
-    citestyle=authoryear-icomp,%authortitle,
+    style=authoryear-icomp, % alphabetic
+    citestyle=authoryear-icomp, % alphabetic, authortitle
     date=short,
-    %backref=true, % Seiten anzeigen auf denen die Referenz verwendet wird
-    maxbibnames=3,
+    % backref=true, % Display pages on which the reference is used
+    maxnames=1, % affects the cites
+    maxbibnames=3, % affects the bibliography
     pagetracker=true,
     isbn=false,    
-    %block=ragged, %break urls
-%    firstinits=true, % vornamen abkürzen
-    backrefstyle=three+ %Seiten zusammenfassen    
+    % block=ragged, % break urls
+    % firstinits=true, % shorten first names
+    backrefstyle=three+ % Combine pages
 ]{biblatex}
 
-\setlength{\bibitemsep}{.5em}     % Abstand zwischen den Literaturangaben
-\setlength{\bibhang}{2em}        % Einzug nach jeweils erster Zeile
+% Distance between bibliographical references
+\setlength{\bibitemsep}{.5em}
 
-% URL im Literaturverzeichnis ist in spitzen Klammern
+% Indentation after the first line
+\setlength{\bibhang}{2em}
+
+% URL in the bibliography is in angle brackets
 \DeclareFieldFormat{url}{<\url{#1}>}
 
-%break too long urls
+% break too long urls
 \setcounter{biburllcpenalty}{7000}
 \setcounter{biburlucpenalty}{8000}
 
+% Source of the bibliography file
 \bibliography{sources/literature.bib}

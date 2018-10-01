@@ -21,24 +21,30 @@
 <!-- /TOC -->
 
 ## Getting started
+
 ### TeX Live
 Download the latest version of TeX Live from [here](https://www.tug.org/texlive/).
 The installation can take a while, so be patient ;)
 
-### TeX Works
-You can use the editor of your choice. The prefered one for this template is the [TeX Works editor](https://www.tug.org/texworks/).
-The editor should be included in the TeX Live package. You can find the .exe in the installation folder of your TeX Live distribution (`...\texlive\2015\bin\win32\texworks.exe`). Otherwise download the latest version from the [website](https://www.tug.org/texworks/).
+### Editors
+You can use the editor of your choice. It's highly recommended for this template to use the [LaTeX-Workshop-Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for [VS Code](https://code.visualstudio.com/). There you can compile the tex-files very easily and you get a good support with autocompletion for references or bibliography.
 
-### Compile the tex-file
+Another editor can be found in [TeX Works editor](https://www.tug.org/texworks/).
+The editor should already be included in the TeX Live package. You can find the .exe in the installation folder of your TeX Live distribution (`...\texlive\2017\bin\win32\texworks.exe`). Otherwise download the latest version from the [website](https://www.tug.org/texworks/). 
+
+*The following descriptions are for TeX Works only. If you use VS Code LaTeX Workshop you can skip these sections because it does the things automatically.*
+
+### Compile the tex-file (in TeX Works)
 Finally you want to see the template working so you need to open the file `thesis.tex` with the TeX Works editor.
 On the top left you can press the green button to compile the template. Be sure that you select `pdfLaTeX` in the select box next to the green compile button.
 Now the compiler should run without any errors and the preview of the PDF opens up.
 The content of the table of contents or the list of figures are not rendered yet. You need to compile the template twice.
 
-### Biber
+### Biber (in TeX Works)
 As you may have noticed the footnote for the cites are not rendered yet very well. To compile the cites and the bibliography settings you need `biber`. You have to select the `biber`-compiler instead of the `pdfLaTeX` in the selection next to the green compiler button. 
 
 **You cannot find `biber` there?**
+
 You just have to set up the TeX Works editor that it shows the `biber`-compiler.
 Go into the settings of TeX Works (under `Edit > Settings...`) and select the tab `Typesetting`. Under the point `Processing tools` click on the `+` and add `biber`. Name it 'Biber' and select the program under your installation folder of `texlive` (e.g. `C:/texlive/2015/bin/win32/biber.exe`). You have to add the argument `$basename` and uncheck the option to `view pdf after running`.
 
@@ -84,7 +90,7 @@ The 'real' image is located under `images/` and has the full file name `sample.j
 **Add image with caption**
 The following code shows how to include an image in a `figure` environment. The image has a width of 100% of the page. If you want another width just change it, e.g. 300px. 
 The caption of the image in the `[]` is the text that will be shown in the list of figures after the table of contents. The text in the `{}` is shown as title under the image.
-With the label-text you can refer the image in the text with: `\ref{fig:imageYouCanReferTo} shows that...`.
+With the label-text you can refer the image in the text with: `\autoref{fig:imageYouCanReferTo} shows that...`.
 
 ```
 \begin{figure}[h]
@@ -126,7 +132,7 @@ As you can see in the example above we have already a literature file in the `so
 }
 ```
 
-The sources will be devided either in "Online"-sources or "Literature"-sources.
+The sources will be divided either in "Online"-sources or "Literature"-sources.
 
 This can be configured in the `thesis.tex`-file:
 
@@ -138,7 +144,7 @@ This can be configured in the `thesis.tex`-file:
 ### JabRef
 Wait! Do I need to update those entries every time manually? This can be really ugly over time. The solution is [JabRef](https://www.jabref.org/). JabRef is a small but very useful java application to handle our sources and to update the `.bib`-files in our `sources`-folder.
 
-Download JabRef from the [website](https://www.jabref.org/) and open your `.bib`-files with it. Here you can update your sources easily.
+Download JabRef from the [website](https://www.jabref.org/) and open your `.bib`-files with it. Here you can easily update your sources through a user interface.
 
 ### Cites and footnotes
 How to use the sources in my content?

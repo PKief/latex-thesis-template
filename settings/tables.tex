@@ -1,0 +1,24 @@
+% Table layout
+\setlength{\tabcolsep}{0.5em} % for the horizontal padding
+{\renewcommand{\arraystretch}{1.2} % for the vertical padding
+
+% Table captions
+\usepackage{caption} 
+\captionsetup[table]{belowskip=12pt,aboveskip=4pt}
+\usepackage{diagbox}
+
+% Rotate tables
+\usepackage{rotating}
+\usepackage{varwidth}
+
+% Footnotes with tables
+\usepackage{footnote}
+\makesavenoteenv{figure}
+
+% Line breaks in table cells
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}
+}
+
+% rotate content of table cell
+\def\rot{\rotatebox} % usage: \rot{angle}{content}

@@ -7,7 +7,7 @@
 % general settings for listing
 \lstset{
     xleftmargin=1.1cm,
-    belowskip=3em,
+    belowskip=2em,
     basicstyle=\fontsize{10}{15}\ttfamily,
     basewidth  = {.5em,0.4em},
     captionpos=t,
@@ -37,6 +37,15 @@
     breaklines=true,
     showtabs=false,
     upquote=true,
+    % German umlauts
+    literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
 }
 
 % define language
@@ -54,6 +63,22 @@
     morestring=[b]',
     morestring=[b]"
 }
+
+\lstdefinelanguage{SQL}{
+    keywords={select, where, from},
+    keywordstyle=\color{editorGreen}\bfseries,
+    ndkeywords={},
+    ndkeywordstyle=\color{vscodeblue}\bfseries,
+    identifierstyle=\color{black},
+    sensitive=false,
+    comment=[l]{--},
+    morecomment=[s]{/*}{*/},
+    commentstyle=\color{editorGreen}\ttfamily,
+    stringstyle=\color{darkred}\ttfamily,
+    morestring=[b]',
+    morestring=[b]"
+}
+
 
 \lstdefinelanguage{HTML5}{
   language=html,
@@ -93,6 +118,7 @@
   transition:,  transition-duration:, transition-property:, transition-timing-function:,
   }
 }
+
 \lstdefinestyle{html} {%
   % Code design
   keywordstyle=\color{lightblack}\bfseries,
@@ -135,7 +161,12 @@
 }
 
 \lstdefinestyle{js} {
-   language=JavaScript   
+  language=JavaScript
+}
+
+\lstdefinestyle{sql} {
+  language=SQL,
+  keywordstyle=\color{azure}  
 }
 
 %Usage

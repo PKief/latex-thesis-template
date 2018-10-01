@@ -1,27 +1,28 @@
-%geometry
+% geometry
 \usepackage{geometry}
 \geometry{left=25mm, right=25mm, top=25mm, bottom=30mm}
 
 \usepackage[automark]{scrlayer-scrpage}
 \pagestyle{scrheadings}
 \automark*[section]{}
-\ohead{\headmark}
+\ohead{\headmark} % name of the current section
 \ihead{}
-\ofoot{\thepage}
+\ofoot{\thepage} % page number
 
-%footnote gap
+% footnote gap
 \addtolength{\skip\footins}{1ex}
 \addtolength{\footnotesep}{0.5ex}
 
-%prevend footnote page break
+% prevent footnote page break
 \interfootnotelinepenalty=10000
 
-% zeilenabstände
+% line spacing
 \usepackage[onehalfspacing]{setspace}
 
-\raggedbottom %text muss nicht bis zum ende einer seite gehen
+% text does not have to go to the end of a page
+\raggedbottom
 
-% platz vor und nach Kapitelüberschriften
+% space before and after chapter headings
 \RedeclareSectionCommand[beforeskip=0pt,afterskip=.6cm,font=\fontsize{18}{20}\selectfont]{chapter}
 %\RedeclareSectionCommand[beforeskip=10pt,afterskip=.3cm,font=\fontsize{18}{25}\selectfont]{section}
 %\RedeclareSectionCommand[beforeskip=10pt,afterskip=.3cm,font=\fontsize{16}{25}\selectfont]{subsection}
@@ -32,11 +33,11 @@
 % chapter style
 \renewcommand*{\chapterformat}{%
   \thechapter\enskip
-  \textcolor{gray!50}{\rule[-\dp\strutbox]{2pt}{\baselineskip}}\enskip
+  \textcolor{gray!70}{\rule[-\dp\strutbox]{1pt}{\baselineskip}}\enskip
 }
 \setkomafont{disposition}{\normalcolor\bfseries}
 
-%paragraph anpassen
+% adjust paragraphs
 %\addtokomafont{paragraph}{\itshape}
 %\setkomafont{subsubsection}{\large}
 %\setkomafont{paragraph}{\normalsize\itshape}
@@ -46,16 +47,9 @@
 % paragraphs look like the subsubsections
 \RedeclareSectionCommands[
     beforeskip=-3.25ex plus -1ex minus -0.2ex,
-    afterskip=1sp,% smallest possible positive value
+    afterskip=1sp, % smallest possible positive value
 ]{paragraph,subparagraph}
 
-% Roman page numbers in backmatter
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd{\backmatter}
-{\@mainmatterfalse}
-{\@mainmatterfalse\pagenumbering{roman}}
-{}
-{}
-\makeatother
-
+% Bold caption labels
+\setkomafont{captionlabel}{\normalsize\bfseries} 
+% \usepackage[font=sf]{caption} % Captions without serifs
