@@ -139,6 +139,9 @@ This can be configured in the `thesis.tex`-file:
 \printbibliography[heading=subbibliography, type=book, title={Literatur}]
 ```
 
+> [!NOTE]
+> Make sure to run the LaTeX compiler for at least 3 times to see the contents of the literature section properly.
+
 ### JabRef
 Wait! Do I need to update those entries every time manually? This can be really ugly over time. The solution is [JabRef](https://www.jabref.org/). JabRef is a small but very useful java application to handle our sources and to update the `.bib`-files in our `sources`-folder.
 
